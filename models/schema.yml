@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "Source tables from the raw_data schema"
+    database: dev
+    schema: raw_data
+    tables:
+      - name: user_session_channel
+        description: "User session channel data"
+
+      - name: session_timestamp
+        description: "Session timestamp data"
+
+models:
+  - name: session_summary
+    description: "Session summary data"
+    columns:
+      - name: sessionId
+        description: "Unique identifier for each session"
+        tests:
+          - unique
+          - not_null
